@@ -462,143 +462,176 @@
             background: var(--light-green);
         }
 
-        /* Reviews Carousel */
+        /* Reviews Section */
         .reviews-section {
             text-align: center;
-            padding: 60px 5%;
+            padding: 80px 5%;
             background: var(--bg-light);
-        }
-        
-        .reviews-container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 800px;
-            margin: 0 auto;
             position: relative;
             overflow: hidden;
-            height: 350px;
+        }
+        
+        .reviews-content {
+            position: relative;
+            z-index: 2;
         }
         
         .reviews-section h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .reviews-section p {
+            font-size: 1.2rem;
             color: var(--gray-600);
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .review {
-            position: absolute;
-            width: 100%;
-            padding: 0 40px;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-            top: 120px;
-        }
-        
-        .review.active {
-            opacity: 1;
-        }
-        
-        .review-stars {
-            color: #FFD700;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        
-        .review-text {
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            position: relative;
-            line-height: 1.6;
-        }
-        
-        .review-text:before, .review-text:after {
-            content: """;
-            font-size: 3rem;
-            color: var(--pink);
-            opacity: 0.3;
-            position: absolute;
-        }
-        
-        .review-text:before {
-            top: -20px;
-            left: -20px;
-        }
-        
-        .review-text:after {
-            bottom: -40px;
-            right: -20px;
-        }
-        
-        .review-author {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 1.1rem;
-        }
-        
-        .review-meta {
-            color: var(--gray-600);
-            font-size: 0.9rem;
-            margin-top: 5px;
+            max-width: 700px;
+            margin: 0 auto 40px;
         }
         
         .reviews-button {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 18px 40px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            gap: 15px;
+            padding: 22px 50px;
+            background: linear-gradient(135deg, #4285F4, #34A853);
             color: white;
             border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            margin-top: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
         }
         
         .reviews-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #124a87, #2575a8);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        
+        .reviews-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        
+        .reviews-button:hover:before {
+            left: 100%;
         }
         
         .reviews-button i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
-
-        .review-indicators {
+        
+        .google-logo {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .google-logo:before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border: 4px solid #4285F4;
+            border-right-color: transparent;
+            border-radius: 50%;
+        }
+        
+        .google-logo:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 8px solid #4285F4;
+            right: 3px;
+        }
+        
+        .rating {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 10px;
             margin-top: 30px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #FBBC05;
         }
         
-        .indicator {
-            width: 12px;
-            height: 12px;
+        .rating-stars {
+            display: flex;
+            gap: 3px;
+        }
+        
+        .rating-number {
+            background: #4285F4;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .review-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .review-shape {
+            position: absolute;
+            opacity: 0.1;
+        }
+        
+        .review-shape.circle {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s;
+            background: #4285F4;
+            top: 20%;
+            left: 10%;
         }
         
-        .indicator.active {
-            background: var(--pink);
-            transform: scale(1.2);
+        .review-shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 80px solid #34A853;
+            top: 40%;
+            right: 15%;
+            transform: rotate(45deg);
+        }
+        
+        .review-shape.square {
+            width: 80px;
+            height: 80px;
+            background: #EA4335;
+            bottom: 20%;
+            left: 15%;
+            transform: rotate(30deg);
         }
 
         /* Modal */
@@ -865,21 +898,9 @@
                 grid-template-columns: 1fr; 
             }
             
-            .reviews-container {
-                padding: 25px;
-                height: 380px;
-            }
-            
-            .review {
-                padding: 0 20px;
-            }
-            
-            .review-text:before {
-                left: -10px;
-            }
-            
-            .review-text:after {
-                right: -10px;
+            .reviews-button {
+                padding: 18px 40px;
+                font-size: 1.1rem;
             }
             
             .floating-sticker {
@@ -1087,54 +1108,33 @@
 
     <!-- Google Reviews -->
     <section class="reviews-section">
-        <div class="reviews-container">
+        <div class="review-shapes">
+            <div class="review-shape circle"></div>
+            <div class="review-shape triangle"></div>
+            <div class="review-shape square"></div>
+        </div>
+        
+        <div class="reviews-content">
             <h2>See What Parents Say About Us</h2>
             <p>Don't just take our word for it - hear from the parents of our successful students</p>
-            
-            <div class="review active" id="review1">
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                
-                <div class="review-text">
-                    We have a good experience with symbiotic institute.....faculty gives personal attention to children. Motivates them encourage them and v helpful ....
-                </div>
-                
-                <div class="review-author">Shaz atif</div>
-                <div class="review-meta">1 review • 0 photos</div>
-            </div>
-            
-            <div class="review" id="review2">
-                <div class="review-stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                
-                <div class="review-text">
-                    It is really good... Teachers are very hardworking and provide best materials and notes...i can see d Graph of my child increase..
-                </div>
-                
-                <div class="review-author">Nishu gupta</div>
-                <div class="review-meta">2 reviews • 0 photos</div>
-            </div>
-            
-            <div class="review-indicators">
-                <div class="indicator active" onclick="showReview(0)"></div>
-                <div class="indicator" onclick="showReview(1)"></div>
-            </div>
             
             <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zKs0sjRLSsozYLRSNagwtkwzMjC1SDE2TE1MNE0ytjKoSEpKTLMwM05NSjJMMks0tfASLq7MTcrML8lMVsjMKy7JLCktSQUANZIXkg&q=symbiotic+institute&rlz=1C1CHBF_enIN1132IN1132&oq=s&gs_lcrp=EgZjaHJvbWUqFQgEEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MgYIARBFGDwyBggCEEUYPDIGCAMQRRg7MhUIBBAuGCcYrwEYxwEYgAQYigUYjgUyBggFEEUYOzIGCAYQRRg8MgYIBxBFGDzSAQgzMzA2ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#mpd=~13481104329782748208/customers/reviews" 
                target="_blank" 
                class="reviews-button">
-                <i class="fab fa-google"></i> View All Google Reviews
+                <div class="google-logo"></div>
+                View All Google Reviews
             </a>
+            
+            <div class="rating">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="rating-number">4.9/5</div>
+            </div>
         </div>
     </section>
 
@@ -1210,26 +1210,6 @@
                 }
             });
         }
-
-        // Reviews Carousel
-        let currentReview = 0;
-        const reviews = document.querySelectorAll('.review');
-        const indicators = document.querySelectorAll('.indicator');
-        
-        function showReview(index) {
-            reviews.forEach(review => review.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
-            
-            reviews[index].classList.add('active');
-            indicators[index].classList.add('active');
-            currentReview = index;
-        }
-        
-        // Auto-rotate reviews
-        setInterval(() => {
-            currentReview = (currentReview + 1) % reviews.length;
-            showReview(currentReview);
-        }, 5000);
     </script>
 </body>
 </html>
