@@ -76,6 +76,7 @@
             color: var(--teal);
             font-weight: 500;
             margin-top: 2px;
+            text-align: left;
         }
 
         .nav-buttons {
@@ -674,6 +675,7 @@
             cursor: pointer;
             color: var(--gray-600);
             transition: color 0.3s;
+            z-index: 10;
         }
 
         .modal-close:hover {
@@ -831,6 +833,7 @@
             font-size: 1.2rem;
             cursor: pointer;
             color: var(--gray-600);
+            z-index: 10;
         }
 
         .popup-button {
@@ -868,6 +871,17 @@
             .logo {
                 width: 100%;
                 justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-text {
+                align-items: center;
+            }
+            
+            .logo-subtitle {
+                text-align: center;
+                margin-top: 5px;
             }
             
             .nav-buttons {
@@ -912,6 +926,51 @@
                 right: 20px;
                 left: 20px;
                 max-width: none;
+            }
+            
+            /* Mobile modal improvements */
+            .modal-content, 
+            .contact-modal-content {
+                width: 90%;
+                padding: 30px 20px;
+            }
+            
+            .modal-close {
+                top: 10px;
+                right: 15px;
+                font-size: 1.8rem;
+                background: rgba(255,255,255,0.8);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .contact-modal-content .phone-number {
+                font-size: 1.4rem;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header .contact-link, 
+            header .about-link {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            
+            .modal-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .contact-modal-content h3 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -1125,8 +1184,18 @@
                 View All Google Reviews
             </a>
             
-           
-
+            <div class="rating">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="rating-number">5/5</div>
+            </div>
+        </div>
+    </section>
 
     <!-- Timed Popup -->
     <div class="timed-popup" id="timedPopup">
@@ -1150,7 +1219,7 @@
             <p>Get in touch for admission guidance and counseling</p>
             
             <div class="phone-number">
-                +91 9149822922
+                <i class="fas fa-phone"></i> +91 9149822922
             </div>
             
             <p>We provide:</p>
