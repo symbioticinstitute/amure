@@ -21,7 +21,9 @@
             --orange: #fed7aa;
             --purple: #e9d5ff;
             --gold: #f59e0b;
-            --blue: #3b82f6;
+            --blue: #2563eb;
+            --teal: #0d9488;
+            --pink: #ec4899;
         }
 
         * { 
@@ -38,6 +40,7 @@
             position: relative;
             overflow-x: hidden;
             padding-bottom: 30px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e6f0ff 100%);
         }
 
         /* Header */
@@ -63,11 +66,6 @@
             gap: 10px;
         }
 
-        .logo img {
-            height: 50px;
-            width: auto;
-        }
-
         .logo-text {
             display: flex;
             flex-direction: column;
@@ -75,7 +73,7 @@
 
         .logo-subtitle {
             font-size: 14px;
-            color: var(--accent);
+            color: var(--teal);
             font-weight: 500;
             margin-top: 2px;
         }
@@ -116,7 +114,7 @@
         .hero { 
             position: relative; 
             padding: 100px 5%; 
-            background: linear-gradient(135deg, #1b6411, #10b981); 
+            background: linear-gradient(135deg, #2563eb, #1e40af); 
             display: flex; 
             flex-direction: column;
             justify-content: center; 
@@ -164,7 +162,7 @@
             padding: 15px 0;
             border-radius: 0;
             box-shadow: none;
-            background: linear-gradient(-45deg, #1b6411, #10b981, #2c3e50, #8e44ad);
+            background: linear-gradient(-45deg, #2563eb, #1e40af, #d6336c, #ec4899);
             background-size: 400% 400%;
             animation: gradient-shift 8s ease infinite;
         }
@@ -203,7 +201,7 @@
             width: 120px; 
             height: 120px; 
             border-radius: 50%; 
-            background: var(--accent); 
+            background: #3b82f6; 
             top: 10%; 
             left: 10%; 
         }
@@ -239,58 +237,6 @@
         @keyframes float { 
             0%, 100% { transform: translateY(0) rotate(0deg); } 
             50% { transform: translateY(-20px) rotate(5deg); } 
-        }
-
-        /* Stats Section */
-        .stats {
-            background: var(--white);
-            padding: 60px 20px;
-            margin-top: -40px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .stat-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s;
-            border-left: 4px solid var(--accent);
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-card:hover { 
-            transform: translateY(-5px); 
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .stat-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        .stat-value { 
-            font-size: 2rem; 
-            font-weight: 700; 
-            margin-bottom: 5px; 
-            color: var(--primary); 
-        }
-
-        .stat-label { 
-            font-size: 0.9rem; 
-            color: var(--gray-600); 
         }
 
         /* Main Content */
@@ -333,7 +279,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
             text-align: center; 
             transition: all 0.3s;
-            border-left: 5px solid var(--accent);
+            border-left: 5px solid var(--pink);
             position: relative;
         }
 
@@ -348,8 +294,8 @@
             border-radius: 50%; 
             overflow: hidden; 
             margin: 0 auto 20px; 
-            border: 4px solid var(--accent); 
-            background: linear-gradient(135deg, var(--light-green), var(--accent));
+            border: 4px solid var(--pink); 
+            background: linear-gradient(135deg, var(--light-pink), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -516,11 +462,94 @@
             background: var(--light-green);
         }
 
-        /* Google Reviews Button */
+        /* Reviews Carousel */
         .reviews-section {
             text-align: center;
             padding: 60px 5%;
             background: var(--bg-light);
+        }
+        
+        .reviews-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            height: 350px;
+        }
+        
+        .reviews-section h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .reviews-section p {
+            color: var(--gray-600);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .review {
+            position: absolute;
+            width: 100%;
+            padding: 0 40px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            top: 120px;
+        }
+        
+        .review.active {
+            opacity: 1;
+        }
+        
+        .review-stars {
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .review-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .review-text:before, .review-text:after {
+            content: """;
+            font-size: 3rem;
+            color: var(--pink);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .review-text:before {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .review-text:after {
+            bottom: -40px;
+            right: -20px;
+        }
+        
+        .review-author {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .review-meta {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            margin-top: 5px;
         }
         
         .reviews-button {
@@ -538,16 +567,38 @@
             transition: all 0.3s;
             text-decoration: none;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-top: 30px;
         }
         
         .reviews-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #14550c, #0da271);
+            background: linear-gradient(135deg, #124a87, #2575a8);
         }
         
         .reviews-button i {
             font-size: 1.5rem;
+        }
+
+        .review-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .indicator.active {
+            background: var(--pink);
+            transform: scale(1.2);
         }
 
         /* Modal */
@@ -641,10 +692,6 @@
             font-size: 2rem;
             color: var(--primary);
             margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
         }
 
         .contact-modal-content p {
@@ -661,7 +708,7 @@
             gap: 15px;
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--secondary);
+            color: var(--teal);
             padding: 20px;
             background: white;
             border-radius: 15px;
@@ -714,6 +761,59 @@
             transform: translateY(-50%) translateX(-5px);
         }
 
+        /* Timed Popup */
+        .timed-popup {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            z-index: 300;
+            max-width: 350px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .timed-popup h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .timed-popup p {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--gray-600);
+        }
+
+        .popup-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
         /* Copyright */
         .copyright {
             text-align: center;
@@ -740,6 +840,7 @@
             .nav-buttons {
                 width: 100%;
                 justify-content: center;
+                flex-wrap: wrap;
             }
             
             .hero { 
@@ -764,12 +865,32 @@
                 grid-template-columns: 1fr; 
             }
             
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .reviews-container {
+                padding: 25px;
+                height: 380px;
+            }
+            
+            .review {
+                padding: 0 20px;
+            }
+            
+            .review-text:before {
+                left: -10px;
+            }
+            
+            .review-text:after {
+                right: -10px;
             }
             
             .floating-sticker {
                 display: none;
+            }
+            
+            .timed-popup {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                max-width: none;
             }
         }
     </style>
@@ -778,18 +899,17 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgNTAiPjxwYXRoIGZpbGw9IiMxYjY0MTEiIGQ9Ik0zMCAxMGgxMHYzMGgtMTB6TTUwIDEwaDEwdjMwSDUwek03MCAxMGgxMHYzMEg3MHoiLz48Y2lyY2xlIGN4PSIxMTAiIGN5PSIyNSIgcj0iMTUiIGZpbGw9IiMxYjY0MTEiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTE1IDIwaC0xMHYxMGgxMHYtMTB6TTExNSAzMGgtMTB2MTBoMTBWMzB6Ii8+PHBhdGggZmlsbD0iIzFiNjQxMSIgZD0iTTE0MCAxMGgxMHYzMGgtMTB6TTE2MCAxMGgxMHYzMGgtMTB6TTE4MCAxMGgxMHYzMGgtMTB6Ii8+PC9zdmc+" alt="Symbiotic Institute Logo">
             <div class="logo-text">
                 <div>Symbiotic Institute</div>
                 <div class="logo-subtitle">Excellence in AMU Admission Preparation</div>
             </div>
         </div>
         <div class="nav-buttons">
-            <a href="#" class="about-link" onclick="openAboutModal()">
-                <i class="fas fa-info-circle"></i> About Us
+            <a href="https://symbioticlearning.com/about" target="_blank" class="about-link">
+                About Us
             </a>
             <a href="#" class="contact-link" onclick="openContactModal()">
-                <i class="fas fa-phone-alt"></i> Contact Us
+                Contact Us
             </a>
         </div>
     </header>
@@ -803,51 +923,16 @@
         
         <h1>AMU Admission Test Achievements</h1>
         <p>Celebrating the success of our students in AMU Class XI and Diploma Engineering admissions</p>
-        <div class="hero-subtitle">Proven Results | Expert Guidance | Comprehensive Preparation</div>
         
         <div class="marquee-container">
             <div class="gradient-banner">
                 <div class="gradient-text">
-                    <i class="fas fa-medal"></i> Ranks Under 100 &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                    <i class="fas fa-graduation-cap"></i> 100% Success Rate &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                    <i class="fas fa-trophy"></i> Multiple Toppers &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    <i class="fas fa-medal"></i> Proven Results &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    <i class="fas fa-chalkboard-teacher"></i> Expert Guidance &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                    <i class="fas fa-book"></i> Comprehensive Preparation &nbsp;&nbsp;&bull;&nbsp;&nbsp;
                     <i class="fas fa-star"></i> Personalized Mentorship &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-                    <i class="fas fa-book"></i> Comprehensive Study Material
+                    <i class="fas fa-trophy"></i> Consistent Top Ranks
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-user-graduate"></i>
-                </div>
-                <div class="stat-value">100%</div>
-                <div class="stat-label">Success Rate</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-medal"></i>
-                </div>
-                <div class="stat-value">15+</div>
-                <div class="stat-label">Top 100 Ranks</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-value">50+</div>
-                <div class="stat-label">Students Selected</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <div class="stat-value">10+</div>
-                <div class="stat-label">Expert Faculty</div>
             </div>
         </div>
     </section>
@@ -925,6 +1010,27 @@
             <!-- Student 1 -->
             <div class="card">
                 <div class="achievement-badge">
+                    <i class="fas fa-globe-asia"></i>
+                </div>
+                <div class="photo">
+                    <div style="font-size: 3rem;">SN</div>
+                </div>
+                <div class="name">Sumaiya Nizami</div>
+                <div class="school">AMU Class XI (Science)</div>
+                <div class="admission">International Indian School, Dammam, Saudi Arabia</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="year-title">
+            <i class="fas fa-graduation-cap"></i> Successful Candidates 2022
+        </div>
+        
+        <div class="cards">
+            <!-- Student 1 -->
+            <div class="card">
+                <div class="achievement-badge">
                     <i class="fas fa-user-graduate"></i>
                 </div>
                 <div class="photo">
@@ -938,14 +1044,27 @@
             <!-- Student 2 -->
             <div class="card">
                 <div class="achievement-badge">
-                    <i class="fas fa-globe-asia"></i>
+                    <i class="fas fa-laptop-code"></i>
                 </div>
                 <div class="photo">
-                    <div style="font-size: 3rem;">SN</div>
+                    <div style="font-size: 2.5rem;">SA</div>
                 </div>
-                <div class="name">Sumaiya Nizami</div>
-                <div class="school">AMU Class XI (Science)</div>
-                <div class="admission">International Indian School, Dammam, Saudi Arabia</div>
+                <div class="name">Shoib Alam</div>
+                <div class="school">Diploma in Engineering</div>
+                <div class="admission">Selected through AMU Entrance</div>
+            </div>
+            
+            <!-- Student 3 -->
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="photo">
+                    <div style="font-size: 2.5rem;">MA</div>
+                </div>
+                <div class="name">Md Anas</div>
+                <div class="school">Diploma in Engineering</div>
+                <div class="admission">Selected through AMU Entrance</div>
             </div>
         </div>
     </div>
@@ -962,17 +1081,61 @@
         <h2>Ready to Secure Your Child's Admission?</h2>
         <p>Join hundreds of successful students who have achieved their dreams with our expert guidance</p>
         <button class="cta-button" onclick="openContactModal()">
-            <i class="fas fa-phone-alt"></i> Contact Us Today
+            Contact Us Today
         </button>
     </section>
 
     <!-- Google Reviews -->
     <section class="reviews-section">
-        <h2>See What Parents Say About Us</h2>
-        <p>Check out our 5-star reviews from satisfied parents</p>
-        <button class="reviews-button" onclick="openReviews()">
-            <i class="fab fa-google"></i> View Google Reviews
-        </button>
+        <div class="reviews-container">
+            <h2>See What Parents Say About Us</h2>
+            <p>Don't just take our word for it - hear from the parents of our successful students</p>
+            
+            <div class="review active" id="review1">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                
+                <div class="review-text">
+                    We have a good experience with symbiotic institute.....faculty gives personal attention to children. Motivates them encourage them and v helpful ....
+                </div>
+                
+                <div class="review-author">Shaz atif</div>
+                <div class="review-meta">1 review • 0 photos</div>
+            </div>
+            
+            <div class="review" id="review2">
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                
+                <div class="review-text">
+                    It is really good... Teachers are very hardworking and provide best materials and notes...i can see d Graph of my child increase..
+                </div>
+                
+                <div class="review-author">Nishu gupta</div>
+                <div class="review-meta">2 reviews • 0 photos</div>
+            </div>
+            
+            <div class="review-indicators">
+                <div class="indicator active" onclick="showReview(0)"></div>
+                <div class="indicator" onclick="showReview(1)"></div>
+            </div>
+            
+            <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zKs0sjRLSsozYLRSNagwtkwzMjC1SDE2TE1MNE0ytjKoSEpKTLMwM05NSjJMMks0tfASLq7MTcrML8lMVsjMKy7JLCktSQUANZIXkg&q=symbiotic+institute&rlz=1C1CHBF_enIN1132IN1132&oq=s&gs_lcrp=EgZjaHJvbWUqFQgEEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MgYIARBFGDwyBggCEEUYPDIGCAMQRRg7MhUIBBAuGCcYrwEYxwEYgAQYigUYjgUyBggFEEUYOzIGCAYQRRg8MgYIBxBFGDzSAQgzMzA2ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#mpd=~13481104329782748208/customers/reviews" 
+               target="_blank" 
+               class="reviews-button">
+                <i class="fab fa-google"></i> View All Google Reviews
+            </a>
+        </div>
     </section>
 
     <!-- Floating Sticker -->
@@ -980,20 +1143,29 @@
         CONTACT NOW
     </div>
 
+    <!-- Timed Popup -->
+    <div class="timed-popup" id="timedPopup">
+        <span class="popup-close" onclick="closePopup()">&times;</span>
+        <h3>Your Child's Success Awaits!</h3>
+        <p>You've seen our students achieve great success over the past four years. Now it's your child's turn!</p>
+        <p>Contact us today to learn how we can help your child secure admission to AMU.</p>
+        <a href="#" class="popup-button" onclick="openContactModal()">Get More Information</a>
+    </div>
+
     <!-- Copyright -->
     <div class="copyright">
         &copy; 2023 Symbiotic Institute. All Rights Reserved.
     </div>
 
-    <!-- Modal Structure -->
+    <!-- Contact Modal -->
     <div class="modal" id="contactModal">
         <div class="contact-modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h3><i class="fas fa-phone-alt"></i> Contact Us</h3>
+            <h3>Contact Us</h3>
             <p>Get in touch for admission guidance and counseling</p>
             
             <div class="phone-number">
-                <i class="fas fa-phone"></i> +91 9876543210
+                +91 9876543210
             </div>
             
             <p>We provide:</p>
@@ -1005,28 +1177,8 @@
             </ul>
             
             <div class="thank-you">
-                <i class="fas fa-handshake"></i> Thank you for your interest!
+                Thank you for your interest in Symbiotic Institute!
             </div>
-        </div>
-    </div>
-
-    <!-- About Modal -->
-    <div class="modal" id="aboutModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h3><i class="fas fa-info-circle"></i> About Symbiotic Institute</h3>
-            <p>Founded in 2010, Symbiotic Institute has been a pioneer in preparing students for AMU entrance examinations.</p>
-            <p>Our expert faculty, comprehensive study material, and personalized mentorship have helped hundreds of students secure admission to prestigious AMU programs.</p>
-            <p>We specialize in:</p>
-            <ul style="text-align: left; margin: 20px 0; padding-left: 20px;">
-                <li>AMU Class XI (Science/Commerce) Entrance</li>
-                <li>Diploma Engineering Entrance</li>
-                <li>Intensive test preparation</li>
-                <li>Personalized doubt clearing sessions</li>
-            </ul>
-            <button onclick="openContactModal()">
-                <i class="fas fa-phone-alt"></i> Contact for Admission
-            </button>
         </div>
     </div>
 
@@ -1036,19 +1188,18 @@
             document.getElementById('contactModal').style.display = 'flex';
         }
 
-        function openAboutModal() {
-            document.getElementById('aboutModal').style.display = 'flex';
-        }
-
         function closeModal() {
             document.getElementById('contactModal').style.display = 'none';
-            document.getElementById('aboutModal').style.display = 'none';
         }
 
-        function openReviews() {
-            alert("Redirecting to Google Reviews...");
-            // In a real implementation, this would link to your Google reviews page
+        function closePopup() {
+            document.getElementById('timedPopup').style.display = 'none';
         }
+
+        // Show timed popup after 15 seconds
+        setTimeout(() => {
+            document.getElementById('timedPopup').style.display = 'block';
+        }, 15000);
 
         // Close modal when clicking outside
         window.onclick = function(event) {
@@ -1059,6 +1210,26 @@
                 }
             });
         }
+
+        // Reviews Carousel
+        let currentReview = 0;
+        const reviews = document.querySelectorAll('.review');
+        const indicators = document.querySelectorAll('.indicator');
+        
+        function showReview(index) {
+            reviews.forEach(review => review.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            reviews[index].classList.add('active');
+            indicators[index].classList.add('active');
+            currentReview = index;
+        }
+        
+        // Auto-rotate reviews
+        setInterval(() => {
+            currentReview = (currentReview + 1) % reviews.length;
+            showReview(currentReview);
+        }, 5000);
     </script>
 </body>
 </html>
