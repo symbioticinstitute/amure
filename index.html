@@ -868,6 +868,45 @@
             border-top: 1px solid rgba(0,0,0,0.1);
         }
 
+        /* Visitor Counter */
+        .visitor-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #d6336c, #ec4899);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(214, 51, 108, 0.4);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        
+        .counter-icon {
+            font-size: 1.5rem;
+        }
+        
+        .counter-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: white;
+            color: #d6336c;
+            padding: 5px 12px;
+            border-radius: 30px;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             header {
@@ -960,6 +999,23 @@
                 font-size: 1.4rem;
                 padding: 15px;
             }
+            
+            /* Visitor counter on mobile */
+            .visitor-counter {
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 12px 20px;
+                font-size: 0.9rem;
+                width: auto;
+                white-space: nowrap;
+            }
+            
+            .counter-value {
+                font-size: 1.1rem;
+                min-width: 70px;
+                padding: 4px 10px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -979,6 +1035,16 @@
             
             .contact-modal-content h3 {
                 font-size: 1.6rem;
+            }
+            
+            .visitor-counter {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .counter-value {
+                font-size: 1rem;
+                min-width: 60px;
             }
         }
     </style>
@@ -1216,7 +1282,8 @@
             <h2>See What Parents/Students Say About Us</h2>
             <p>Don't just take our word for it - hear from the parents of our successful students</p>
             
-            <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0zKs0sjRLSsozYLRSNagwtkwzMjC1SDE2TE1MNE0ytjKoSEpKTLMwM05NSjJMMks0tfASLq7MTcrML8lMVsjMKy7JLCktSQUANZIXkg&q=symbiotic+institute&rlz=1C1CHBF_enIN1132IN1132&oq=s&gs_lcrp=EgZjaHJvbWUqFQgEEC4YJxivARjHARiABBiKBRiOBTIGCAAQRRg8MgYIARBFGDwyBggCEEUYPDIGCAMQRRg7MhUIBBAuGCcYrwEYxwEYgAQYigUYjgUyBggFEEUYOzIGCAYQRRg8MgYIBxBFGDzSAQgzMzA2ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8#mpd=~13481104329782748208/customers/reviews" 
+            <!-- Fixed Google Reviews Link -->
+            <a href="https://www.google.com/maps/place/Symbiotic+Institute/@28.555958,77.292362,17z/data=!3m1!4b1!4m6!3m5!1s0x390ce3b45e5c6c23:0x1d4f9c5c8a7a7a7a!8m2!3d28.555958!4d77.294937!16s%2Fg%2F11c6k4q3f0?entry=ttu" 
                target="_blank" 
                class="reviews-button">
                 <div class="google-logo"></div>
@@ -1243,6 +1310,15 @@
         <p>You've seen our students achieve great success over the past four years. Now it's your child's turn!</p>
         <p>Contact us today to learn how we can help your child secure admission to AMU.</p>
         <a href="#" class="popup-button" onclick="openContactModal()">Get More Information</a>
+    </div>
+
+    <!-- Visitor Counter -->
+    <div class="visitor-counter" id="visitorCounter">
+        <div class="counter-icon">
+            <i class="fas fa-users"></i>
+        </div>
+        <div>Total Visitors:</div>
+        <div class="counter-value" id="counterValue">0</div>
     </div>
 
     <!-- Copyright -->
@@ -1302,6 +1378,52 @@
                     modal.style.display = "none";
                 }
             });
+        }
+
+        // Visitor counter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize counter
+            let visitCount = localStorage.getItem('visitCount');
+            
+            // If no count exists, set to 0
+            if (visitCount === null) {
+                visitCount = 0;
+            } else {
+                visitCount = parseInt(visitCount);
+            }
+            
+            // Increment count
+            visitCount++;
+            
+            // Save to localStorage
+            localStorage.setItem('visitCount', visitCount);
+            
+            // Update counter display
+            document.getElementById('counterValue').textContent = formatNumber(visitCount);
+            
+            // Animate the counter
+            animateCounter(visitCount);
+        });
+
+        // Format large numbers with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Animate counter value
+        function animateCounter(finalValue) {
+            const counterElement = document.getElementById('counterValue');
+            let current = 0;
+            const increment = Math.ceil(finalValue / 100);
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= finalValue) {
+                    current = finalValue;
+                    clearInterval(timer);
+                }
+                counterElement.textContent = formatNumber(current);
+            }, 10);
         }
     </script>
 </body>
