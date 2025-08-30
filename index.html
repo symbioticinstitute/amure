@@ -447,75 +447,6 @@
             font-weight: 600;
         }
 
-        .student-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .student-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .student-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .student-image {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .student-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .student-card:hover .student-image img {
-            transform: scale(1.05);
-        }
-
-        .student-details {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .student-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .student-program {
-            color: var(--teal);
-            font-weight: 600;
-            margin-bottom: 10px;
-            padding: 8px 15px;
-            background: var(--light-green);
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .student-info {
-            margin: 10px 0;
-            font-size: 0.9rem;
-        }
-
-        .student-info span {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
         .additional-students {
             text-align: center;
             padding: 30px;
@@ -670,10 +601,6 @@
             .program-type {
                 font-size: 1.2rem;
             }
-            
-            .student-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 480px) {
@@ -741,159 +668,170 @@
         
         <div class="program-type">Under Online/Offline & Counselling and Guidance Programme</div>
         
-        <div class="student-grid">
+        <div class="cards">
             <!-- Student 1 -->
-            <div class="student-card">
-                <div class="student-image">
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="photo">
                     <img src="https://github.com/symbioticinstitute/amure/blob/main/bb489319-d601-4405-9dc9-b05618c53062.jpg?raw=true" alt="Student 1">
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student ABC</h3>
-                    <div class="student-program">AMU Class XI (Science)</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12345</p>
-                    <p class="student-info"><span>Rank:</span> 45</p>
-                    <p class="student-info"><span>Program:</span> Classroom Programme</p>
-                </div>
+                <div class="name">Student ABC</div>
+                <div class="school">AMU Class XI (Science)</div>
+                <div class="rank">Rank: 45</div>
+                <div class="admission">Roll No: XYZ12345</div>
+                <div class="admission">Classroom Programme</div>
             </div>
             
-            <!-- Student 2 -->
-            <div class="student-card">
-                <div class="student-image">
-                    <img src="https://github.com/symbioticinstitute/amure/blob/main/186af046-8838-46fe-8f99-c6c230bfcd72.jpg?raw=true" alt="Student 2">
+            <!-- Student 2 (Blank) -->
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-medal"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student DEF</h3>
-                    <div class="student-program">Diploma Engineering</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12346</p>
-                    <p class="student-info"><span>Rank:</span> 78</p>
-                    <p class="student-info"><span>Program:</span> Online Programme</p>
+                <div class="photo">
+                    <i class="fas fa-user-graduate" style="font-size: 3rem;"></i>
                 </div>
+                <div class="name">Student DEF</div>
+                <div class="school">Diploma Engineering</div>
+                <div class="rank">Rank: 78</div>
+                <div class="admission">Roll No: XYZ12346</div>
+                <div class="admission">Online Programme</div>
             </div>
             
             <!-- Student 3 -->
-            <div class="student-card">
-                <div class="student-image">
-                    <img src="https://github.com/symbioticinstitute/amure/blob/main/785662f1-64e6-40e3-8be8-050987c79f10.jpg?raw=true" alt="Student 3">
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-award"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student GHI</h3>
-                    <div class="student-program">AMU Class XI (Science)</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12347</p>
-                    <p class="student-info"><span>Rank:</span> 112</p>
-                    <p class="student-info"><span>Program:</span> Classroom Programme</p>
+                <div class="photo">
+                    <img src="https://github.com/symbioticinstitute/amure/blob/main/186af046-8838-46fe-8f99-c6c230bfcd72.jpg?raw=true" alt="Student 3">
                 </div>
+                <div class="name">Student GHI</div>
+                <div class="school">AMU Class XI (Science)</div>
+                <div class="rank">Rank: 112</div>
+                <div class="admission">Roll No: XYZ12347</div>
+                <div class="admission">Classroom Programme</div>
             </div>
             
             <!-- Student 4 -->
-            <div class="student-card">
-                <div class="student-image">
-                    <img src="https://github.com/symbioticinstitute/amure/blob/main/fa990ae8-3442-42cd-80ab-5f5f5cb41cb5.jpg?raw=true" alt="Student 4">
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-star"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student JKL</h3>
-                    <div class="student-program">Diploma Engineering</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12348</p>
-                    <p class="student-info"><span>Rank:</span> 95</p>
-                    <p class="student-info"><span>Program:</span> Online Programme</p>
+                <div class="photo">
+                    <img src="https://github.com/symbioticinstitute/amure/blob/main/785662f1-64e6-40e3-8be8-050987c79f10.jpg?raw=true" alt="Student 4">
                 </div>
+                <div class="name">Student JKL</div>
+                <div class="school">Diploma Engineering</div>
+                <div class="rank">Rank: 95</div>
+                <div class="admission">Roll No: XYZ12348</div>
+                <div class="admission">Online Programme</div>
             </div>
             
-            <!-- Student 5 (Placeholder) -->
-            <div class="student-card">
-                <div class="student-image" style="background: linear-gradient(135deg, #3b82f6, #10b981); display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 4rem; color: white;"></i>
+            <!-- Student 5 -->
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-trophy"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student MNO</h3>
-                    <div class="student-program">AMU Class XI (Science)</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12349</p>
-                    <p class="student-info"><span>Rank:</span> 134</p>
-                    <p class="student-info"><span>Program:</span> Classroom Programme</p>
+                <div class="photo">
+                    <img src="https://github.com/symbioticinstitute/amure/blob/main/fa990ae8-3442-42cd-80ab-5f5f5cb41cb5.jpg?raw=true" alt="Student 5">
                 </div>
+                <div class="name">Student MNO</div>
+                <div class="school">AMU Class XI (Science)</div>
+                <div class="rank">Rank: 134</div>
+                <div class="admission">Roll No: XYZ12349</div>
+                <div class="admission">Classroom Programme</div>
             </div>
             
             <!-- Student 6 (Placeholder) -->
-            <div class="student-card">
-                <div class="student-image" style="background: linear-gradient(135deg, #ec4899, #8b5cf6); display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 4rem; color: white;"></i>
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-user-graduate"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student PQR</h3>
-                    <div class="student-program">Diploma Engineering</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12350</p>
-                    <p class="student-info"><span>Rank:</span> 87</p>
-                    <p class="student-info"><span>Program:</span> Online Programme</p>
+                <div class="photo">
+                    <i class="fas fa-user-graduate" style="font-size: 3rem;"></i>
                 </div>
+                <div class="name">Student PQR</div>
+                <div class="school">Diploma Engineering</div>
+                <div class="rank">Rank: 87</div>
+                <div class="admission">Roll No: XYZ12350</div>
+                <div class="admission">Online Programme</div>
             </div>
             
             <!-- Student 7 (Placeholder) -->
-            <div class="student-card">
-                <div class="student-image" style="background: linear-gradient(135deg, #f59e0b, #ef4444); display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 4rem; color: white;"></i>
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-user-graduate"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student STU</h3>
-                    <div class="student-program">AMU Class XI (Science)</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12351</p>
-                    <p class="student-info"><span>Rank:</span> 156</p>
-                    <p class="student-info"><span>Program:</span> Classroom Programme</p>
+                <div class="photo">
+                    <i class="fas fa-user-graduate" style="font-size: 3rem;"></i>
                 </div>
+                <div class="name">Student STU</div>
+                <div class="school">AMU Class XI (Science)</div>
+                <div class="rank">Rank: 156</div>
+                <div class="admission">Roll No: XYZ12351</div>
+                <div class="admission">Classroom Programme</div>
             </div>
             
             <!-- Student 8 (Placeholder) -->
-            <div class="student-card">
-                <div class="student-image" style="background: linear-gradient(135deg, #10b981, #3b82f6); display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 4rem; color: white;"></i>
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-user-graduate"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student VWX</h3>
-                    <div class="student-program">Diploma Engineering</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12352</p>
-                    <p class="student-info"><span>Rank:</span> 102</p>
-                    <p class="student-info"><span>Program:</span> Online Programme</p>
+                <div class="photo">
+                    <i class="fas fa-user-graduate" style="font-size: 3rem;"></i>
                 </div>
+                <div class="name">Student VWX</div>
+                <div class="school">Diploma Engineering</div>
+                <div class="rank">Rank: 102</div>
+                <div class="admission">Roll No: XYZ12352</div>
+                <div class="admission">Online Programme</div>
             </div>
             
             <!-- Student 9 (Placeholder) -->
-            <div class="student-card">
-                <div class="student-image" style="background: linear-gradient(135deg, #8b5cf6, #ec4899); display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 4rem; color: white;"></i>
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-user-graduate"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student YZA</h3>
-                    <div class="student-program">AMU Class XI (Science)</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12353</p>
-                    <p class="student-info"><span>Rank:</span> 143</p>
-                    <p class="student-info"><span>Program:</span> Classroom Programme</p>
+                <div class="photo">
+                    <i class="fas fa-user-graduate" style="font-size: 3rem;"></i>
                 </div>
+                <div class="name">Student YZA</div>
+                <div class="school">AMU Class XI (Science)</div>
+                <div class="rank">Rank: 143</div>
+                <div class="admission">Roll No: XYZ12353</div>
+                <div class="admission">Classroom Programme</div>
             </div>
             
             <!-- Student 10 (Placeholder) -->
-            <div class="student-card">
-                <div class="student-image" style="background: linear-gradient(135deg, #ef4444, #f59e0b); display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 4rem; color: white;"></i>
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-user-graduate"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student BCD</h3>
-                    <div class="student-program">Diploma Engineering</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12354</p>
-                    <p class="student-info"><span>Rank:</span> 91</p>
-                    <p class="student-info"><span>Program:</span> Online Programme</p>
+                <div class="photo">
+                    <i class="fas fa-user-graduate" style="font-size: 3rem;"></i>
                 </div>
+                <div class="name">Student BCD</div>
+                <div class="school">Diploma Engineering</div>
+                <div class="rank">Rank: 91</div>
+                <div class="admission">Roll No: XYZ12354</div>
+                <div class="admission">Online Programme</div>
             </div>
             
             <!-- Student 11 (Placeholder) -->
-            <div class="student-card">
-                <div class="student-image" style="background: linear-gradient(135deg, #3b82f6, #10b981); display: flex; align-items: center; justify-content: center;">
-                    <i class="fas fa-user-graduate" style="font-size: 4rem; color: white;"></i>
+            <div class="card">
+                <div class="achievement-badge">
+                    <i class="fas fa-user-graduate"></i>
                 </div>
-                <div class="student-details">
-                    <h3 class="student-name">Student EFG</h3>
-                    <div class="student-program">AMU Class XI (Science)</div>
-                    <p class="student-info"><span>Roll No:</span> XYZ12355</p>
-                    <p class="student-info"><span>Rank:</span> 167</p>
-                    <p class="student-info"><span>Program:</span> Classroom Programme</p>
+                <div class="photo">
+                    <i class="fas fa-user-graduate" style="font-size: 3rem;"></i>
                 </div>
+                <div class="name">Student EFG</div>
+                <div class="school">AMU Class XI (Science)</div>
+                <div class="rank">Rank: 167</div>
+                <div class="admission">Roll No: XYZ12355</div>
+                <div class="admission">Classroom Programme</div>
             </div>
         </div>
         
@@ -1243,4 +1181,5 @@
     </script>
 </body>
 </html>
+
 
