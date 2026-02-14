@@ -55,17 +55,33 @@
         }
 
         .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .logo-name {
             font-size: 24px;
             font-weight: 700;
             color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
+        .logo-location {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--secondary);
+            background: rgba(214, 51, 108, 0.1);
+            padding: 4px 12px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
         }
 
         .logo-subtitle {
@@ -73,7 +89,6 @@
             color: var(--teal);
             font-weight: 500;
             margin-top: 2px;
-            text-align: left;
         }
 
         .nav-buttons {
@@ -611,7 +626,7 @@
             border-radius: 20px;
             text-align: center;
             max-width: 90%;
-            width: 500px;
+            width: 600px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             position: relative;
             animation: popIn 0.4s ease-out;
@@ -681,10 +696,11 @@
         }
 
         .team-description {
-            text-align: left;
+            text-align: justify;
             color: var(--dark);
             margin: 20px 0;
             line-height: 1.7;
+            font-size: 1rem;
         }
 
         .team-description p {
@@ -741,6 +757,11 @@
         .phone-number:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .phone-number a {
+            color: inherit;
+            text-decoration: none;
         }
 
         /* Timed Popup */
@@ -809,23 +830,23 @@
                 gap: 15px;
                 padding: 15px;
             }
-            .logo {
-                width: 100%;
+            .logo-main {
                 justify-content: center;
-                flex-direction: column;
-                text-align: center;
             }
-            .logo-text {
-                align-items: center;
+            .logo-name {
+                font-size: 20px;
+            }
+            .logo-location {
+                font-size: 16px;
+                padding: 3px 10px;
             }
             .logo-subtitle {
                 text-align: center;
-                margin-top: 5px;
+                font-size: 12px;
             }
             .nav-buttons {
                 width: 100%;
                 justify-content: center;
-                flex-wrap: wrap;
             }
             header .nav-btn {
                 padding: 8px 15px;
@@ -844,6 +865,7 @@
             .timed-popup { bottom: 20px; right: 20px; left: 20px; max-width: none; }
             .modal-content { width: 95%; padding: 30px 20px; }
             .team-photo { width: 120px; height: 120px; }
+            .team-description { text-align: left; } /* better for mobile readability */
         }
 
         @media (max-width: 480px) {
@@ -854,13 +876,14 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header with Begusarai (no icon) -->
     <header>
         <div class="logo">
-            <div class="logo-text">
-                <div>Symbiotic Institute</div>
-                <div class="logo-subtitle">( A Unit of Symbiotic Edusolutions Pvt Ltd )</div>
+            <div class="logo-main">
+                <span class="logo-name">Symbiotic Institute</span>
+                <span class="logo-location">Begusarai</span>
             </div>
+            <div class="logo-subtitle">( A Unit of Symbiotic Edusolutions Pvt Ltd )</div>
         </div>
         <div class="nav-buttons">
             <a href="https://symbioticlearning.com/about" target="_blank" class="nav-btn about-link">Main Website</a>
@@ -1165,7 +1188,7 @@
         &copy; 2023 Symbiotic Institute. All Rights Reserved.
     </div>
 
-    <!-- Team Modal -->
+    <!-- Team Modal with Justified Paragraph -->
     <div class="modal" id="teamModal">
         <div class="modal-content team-modal-content">
             <span class="modal-close" onclick="closeTeamModal()">&times;</span>
@@ -1177,23 +1200,25 @@
             <div class="team-alumnus">AMU Alumnus</div>
             <div class="team-description">
                 <p>Four years ago, we started something small in Begusarai. A coaching centre with a simple belief that students from our city and nearby villages could also crack top entrance exams. Today, we look back at those four years and feel proud. Not just because of the results, but because of the trust parents have placed in us.</p>
-                <p>Behind every result is a team of teachers who have been there themselves. They are graduates from AMU, Aligarh, and other top universities of India. They don't just teach. They understand where a student struggles, what motivates them, how to bring out the best. They have the ability to take a student's raw potential and shape it into achievement</p>
-                <p>Symbiotic Institute is now a part of Symbiotic Edusolutions Pvt Ltd. We are into online learning, offline coaching, publications, counselling and everything that comes under education guidance. We also run regular online classes for CBSE classes 6 to 12 and other boards. And we have a separate division that teaches Indian students studying in schools abroad. So whether a student is in Begusarai or Bahrain, they can access the same quality guidance.<p>
-                <p>At the end of the day, our belief is simple: potential plus dedication equals achievement.<p>
-
-                <p>Where are we headed? We want to reach more students, especially those from rural backgrounds who often don't get the same opportunities. We believe if we stay honest to our work, we can do a lot more in the education space. <p>   
+                <p>Behind every result is a team of teachers who have been there themselves. They are graduates from AMU, Aligarh, and other top universities of India. They don't just teach. They understand where a student struggles, what motivates them, how to bring out the best. They have the ability to take a student's raw potential and shape it into achievement.</p>
+                <p>Symbiotic Institute is now a part of Symbiotic Edusolutions Pvt Ltd. We are into online learning, offline coaching, publications, counselling and everything that comes under education guidance. We also run regular online classes for CBSE classes 6 to 12 and other boards. And we have a separate division that teaches Indian students studying in schools abroad. So whether a student is in Begusarai or Bahrain, they can access the same quality guidance.</p>
+                <p>Where are we headed? We want to reach more students, especially those from rural backgrounds who often don't get the same opportunities. We believe if we stay honest to our work, we can do a lot more in the education space.</p>
+                <p>At the end of the day, our belief is simple: potential plus dedication equals achievement.</p>
             </div>
             <a href="https://symbioticlearning.com/" target="_blank" class="know-more-link">To know more about us, please click here</a>
         </div>
     </div>
 
-    <!-- Contact Modal -->
+    <!-- Contact Modal with Clickable Phone Number -->
     <div class="modal" id="contactModal">
         <div class="contact-modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
             <h3>Contact Us</h3>
             <p>Get in touch for admission guidance and counseling</p>
-            <div class="phone-number"><i class="fas fa-phone"></i> +91 9149822922</div>
+            <div class="phone-number">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+919149822922">+91 9149822922</a>
+            </div>
             <p>We provide:</p>
             <ul style="text-align: left; margin: 20px 0; padding-left: 20px;">
                 <li>Personalized counseling sessions</li>
