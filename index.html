@@ -865,7 +865,7 @@
             .timed-popup { bottom: 20px; right: 20px; left: 20px; max-width: none; }
             .modal-content { width: 95%; padding: 30px 20px; }
             .team-photo { width: 120px; height: 120px; }
-            .team-description { text-align: left; } /* better for mobile readability */
+            /* Removed the override that set text-align left for mobile */
         }
 
         @media (max-width: 480px) {
@@ -941,7 +941,7 @@
                 <div class="name">Asif Iqbal</div>
                 <div class="school">AMU Class XI (Science) / Diploma Engineering</div>
                 <div class="rank">Rank: 171</div>
-                <div class="admission offline-highlight">From Begusarai Offline Learning Centre</div>
+                <div class="admission offline-highlight">Offline Learning Centre</div>
             </div>
             
             <!-- 3. Rehan Raghib (2024) offline -->
@@ -952,7 +952,7 @@
                 <div class="name">Rehan Raghib</div>
                 <div class="school">AMU Class XI (Science) / Diploma Engineering</div>
                 <div class="rank">Rank: 332</div>
-                <div class="admission offline-highlight">From Begusarai Offline Learning Centre</div>
+                <div class="admission offline-highlight">Offline Learning Centre</div>
             </div>
             
             <!-- 4. Abdul Hamid (2025) -->
@@ -1103,7 +1103,7 @@
         <div class="additional-students-card">
             <h3>🎓 Many Other Students Have Been Selected</h3>
             <p>Several students have been selected in different departments through our guidance programs.</p>
-            <a href="https://www.google.com/search?client=ms-android-samsung-ss&sca_esv=41b88c58e4770841&q=symbiotic+institute+reviews&uds=AOm0WdGVbb0tMAupoBJGXWWmbAxmp6SKq63UQN_Rt7MOil4ItMNHGvy4PHAmRteejvdCFDhMFsMQmhLnwDkVZXCRHAKJ0-Q1nKBC9Cvou0Yfx_aKnRJU8sxwjUJpHjwDN4PnQAVQScoTiP6XCl_U_IwLoNQ-48U2zA3d8diratvIXeVieoKdixucb_m2OhLnzr4n0WxX0oXMy8AmBV6-oRnsrzRH4EJQJZQbEXK9RDUavVINKzBqBrYAYG3XBaQMt2xXmszIJhUpm3-w-f_2cBuwccmNpU2ICGyuSZaasw1lOektKWP_Fw4TxdHY1MhPK-HqvcE69KHsegc8hgbLE7ONUYFuVd9iX7m-_a41gXEU9SVFSHHrFvxbUdYdNiPmWWAsCdWM-M9VnFa-_RpKvvVSay-nwcb39How12JcQv2AdtMPpkAGgdFM41ArpuD9dOEB4BFWdGNSNylYYDWOmoocAuhYsUHZPoB3wtf3peV5NH5UsXcecsJ91iEvyg3PHs5P3Zvc2i8AsQ9G9B8wWEsa3q8YjUu1Jg&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E25Ajivupmq0JuicFIXOfEjH8etJ9poDuO2VWtFkiWrL3vporGs_rOM3QzTsIyPsbwXXKsywwr5aA0Na6tifVHm2R6gjd81iREd8n1foyNO4YAzYYA%3D%3D&sa=X&sqi=2&ved=2ahUKEwjRrZnQ28OOAxURcPUHHeNqLgwQk8gLegQIIxAB&ictx=1&stq=1&cs=1&lei=mdR4aJH9KpHg1e8P49W5YQ#ebo=1" target="_blank" class="reviews-button-large">
+            <a href="https://www.google.com/search?q=symbiotic+institute+reviews" target="_blank" class="reviews-button-large">
                 <i class="fab fa-google"></i> See What Students Say
             </a>
         </div>
@@ -1188,7 +1188,7 @@
         &copy; 2023 Symbiotic Institute. All Rights Reserved.
     </div>
 
-    <!-- Team Modal with Justified Paragraph -->
+    <!-- Team Modal with Justified Paragraph (mobile also justified) -->
     <div class="modal" id="teamModal">
         <div class="modal-content team-modal-content">
             <span class="modal-close" onclick="closeTeamModal()">&times;</span>
