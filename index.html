@@ -638,6 +638,13 @@
             background: linear-gradient(135deg, #f5f7fa, #e4edf9);
         }
 
+        .services-modal-content {
+            background: linear-gradient(135deg, #ffffff, #f9f9ff);
+            width: 800px;
+            max-width: 95%;
+            padding: 40px 30px;
+        }
+
         @keyframes popIn {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
@@ -707,6 +714,76 @@
             margin-bottom: 15px;
         }
 
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        .services-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .services-footer p {
+            margin-bottom: 10px;
+        }
+
+        .services-footer a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .services-footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .know-more-link {
             display: inline-block;
             margin-top: 20px;
@@ -718,6 +795,9 @@
             font-weight: 600;
             transition: all 0.3s;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
         .know-more-link:hover {
@@ -865,7 +945,6 @@
             .timed-popup { bottom: 20px; right: 20px; left: 20px; max-width: none; }
             .modal-content { width: 95%; padding: 30px 20px; }
             .team-photo { width: 120px; height: 120px; }
-            /* Removed the override that set text-align left for mobile */
         }
 
         @media (max-width: 480px) {
@@ -1103,7 +1182,7 @@
         <div class="additional-students-card">
             <h3>🎓 Many Other Students Have Been Selected</h3>
             <p>Several students have been selected in different departments through our guidance programs.</p>
-            <a href="https://www.google.com/search?q=symbiotic+institute+reviews" target="_blank" class="reviews-button-large">
+            <a href="https://www.google.com/search?q=symbiotic+institute+reviews&rlz=1C1CHBF_enIN1132IN1132&oq=symbio&gs_lcrp=EgZjaHJvbWUqCAgCEEUYJxg7MgYIABBFGDwyBggBEEUYPDIICAIQRRgnGDsyCggDEAAYsQMYgAQyBggEEEUYOTIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBCDM3NjRqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#mpd=~13481104329782748208/customers/reviews" target="_blank" class="reviews-button-large">
                 <i class="fab fa-google"></i> See What Students Say
             </a>
         </div>
@@ -1163,8 +1242,9 @@
     <!-- Google Reviews -->
     <section class="reviews-section">
         <div class="reviews-content">
-            <h2>See What Parents/Students Say About Us</h2>
+            <h2>See What Parents & Students Say About Us</h2>
             <p>Don't just take our word for it - hear from the parents of our successful students</p>
+            <a href="https://www.google.com/search?q=symbiotic+institute+reviews&rlz=1C1CHBF_enIN1132IN1132&oq=symbio&gs_lcrp=EgZjaHJvbWUqCAgCEEUYJxg7MgYIABBFGDwyBggBEEUYPDIICAIQRRgnGDsyCggDEAAYsQMYgAQyBggEEEUYOTIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBCDM3NjRqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#mpd=~13481104329782748208/customers/reviews" target="_blank" style="display: inline-block; margin-top: 20px; padding: 12px 30px; background: linear-gradient(135deg, #4285F4, #34A853); color: white; text-decoration: none; border-radius: 50px; font-weight: 600;">Click here to read reviews</a>
             <div class="rating">
                 <div class="rating-stars">
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -1188,7 +1268,7 @@
         &copy; 2023 Symbiotic Institute. All Rights Reserved.
     </div>
 
-    <!-- Team Modal with Justified Paragraph (mobile also justified) -->
+    <!-- Team Modal with Justified Paragraph -->
     <div class="modal" id="teamModal">
         <div class="modal-content team-modal-content">
             <span class="modal-close" onclick="closeTeamModal()">&times;</span>
@@ -1205,7 +1285,53 @@
                 <p>Where are we headed? We want to reach more students, especially those from rural backgrounds who often don't get the same opportunities. We believe if we stay honest to our work, we can do a lot more in the education space.</p>
                 <p>At the end of the day, our belief is simple: potential plus dedication equals achievement.</p>
             </div>
-            <a href="https://symbioticlearning.com/" target="_blank" class="know-more-link">To know more about us, please click here</a>
+            <button class="know-more-link" onclick="openServicesModal()">To know more about what we do, please click here</button>
+        </div>
+    </div>
+
+    <!-- Services Modal -->
+    <div class="modal" id="servicesModal">
+        <div class="modal-content services-modal-content">
+            <span class="modal-close" onclick="closeServicesModal()">&times;</span>
+            <h2 style="color: var(--primary); margin-bottom: 20px;">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop"></i></div>
+                    <div class="service-title">Online Learning</div>
+                    <div class="service-desc">Live online classes for Indian students abroad, offering CBSE, JEE, and NEET prep with expert tutors. Flexible schedules, personalized attention, and real-world problem-solving.</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-school"></i></div>
+                    <div class="service-title">Offline Learning</div>
+                    <div class="service-desc">Thriving offline centers with spacious classrooms, state-of-the-art facilities, and personalized mentoring for central university entrance exams. Now introducing JEE/NEET courses.</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="service-title">Publication</div>
+                    <div class="service-desc">Customized guidebooks, solved papers, and practice materials aligned with CBSE and other curricula, bridging the gap for students and institutions.</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-user-check"></i></div>
+                    <div class="service-title">Online Mentoring</div>
+                    <div class="service-desc">Personalized guidance from seasoned mentors for school students and competitive exam aspirants, focusing on strengths and exam strategies.</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-comments"></i></div>
+                    <div class="service-title">Counselling & Guidance</div>
+                    <div class="service-desc">Expert counselors help with subject choices, entrance exam planning, and career roadmaps through one-on-one sessions, both online and offline.</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <div class="service-title">Overseas Education</div>
+                    <div class="service-desc">Specialized division for Indian students abroad, providing coaching and support for CBSE, competitive exams, and holistic academic growth.</div>
+                </div>
+            </div>
+            <div class="services-footer">
+                <p>At Symbiotic Learning, we believe education is an ever-evolving journey. In this age of digital technology, artificial intelligence, and innovation, we are dedicated to continuously improving and adapting to meet the needs of learners in the 21st century.</p>
+                <p>We are proud to have already made a significant impact, empowering students not only in India but also in countries across the globe. As a unit of Symbiotic Edusolutions Pvt Ltd, our mission is to create meaningful connections between students, educators, parents, and communities, fostering growth and success for all.</p>
+                <p>While we celebrate the progress we've achieved, we remain committed to making education more inclusive, impactful, and future-ready. By combining modern advancements with a passion for learning, we strive to inspire individuals, uplift communities, and contribute to building a brighter society.</p>
+                <p><a href="https://symbioticlearning.com" target="_blank">Visit our main website</a></p>
+            </div>
         </div>
     </div>
 
@@ -1237,6 +1363,12 @@
         function closeTeamModal() {
             document.getElementById('teamModal').style.display = 'none';
         }
+        function openServicesModal() {
+            document.getElementById('servicesModal').style.display = 'flex';
+        }
+        function closeServicesModal() {
+            document.getElementById('servicesModal').style.display = 'none';
+        }
         function openContactModal() {
             document.getElementById('contactModal').style.display = 'flex';
         }
@@ -1264,10 +1396,6 @@
     </script>
 </body>
 </html>
-
-
-
-
 
 
 
